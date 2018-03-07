@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Diplomata+SC" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Diplomata+SC" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+
+  <meta charset="utf-8">
+  <title>Topics</title>
+</head>
+
+<body>
+
+
+
+
+
+
+
+<div class="container"
+  <div id="buttons">
+
+    <button data-person="jim carrey">
+      Holy Testicle Tuesday
+    </button>
+
+    <button data-person="Trump">
+      Make America Great Again
+    </button>
+
+    <button data-person="big bang theory">
+    Bazinga!!
+
+    <button data-person="dogs">
+    Bark
+
+    <button data-person="cats">
+      Meow
+
+      <button data-person="fruit">
+        fruit
+
+      <button data-person="minions">
+        Bello!
+
+        <button data-person="tom brady">
+        G.O.A.T
+
+        <button data-person="gravity falls">
+          Dipper
+
+        <button data-person="Dwayne Johnson">
+        The Rock
+
+        <button data-person="destiny game">
+          Destiny
+
+  </div>
+</div>
+  <div id="gifs-appear-here">
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    var topics = ["jim carrey", "big bang theory", "trump", "dogs", "cats", "fruit"];
+    console.log(topics.length);
+
+
+
+
+
+    for (var i = 0; i < topics.length; i++) {
+      console.log(topics[i]);
+    };
+
+
+
+    $("button").on("click", function() {
+      var person = $(this).attr("data-person");
+      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+        person + "&api_key=dc6zaTOxFJmzC&limit=10";
+
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+        .then(function(response) {
+          var results = response.data;
+
+          for (var i = 0; i < results.length; i++) {
+            var gifDiv = $("<div class='item'>");
+
+            var rating = results[i].rating;
+
+            var p = $("<p>").text("Rating: " + rating);
+
+            var personImage = $("<img>");
+            personImage.attr("src", results[i].images.fixed_height.url);
+
+            gifDiv.prepend(p);
+            gifDiv.prepend(personImage);
+
+            $("#gifs-appear-here").prepend(gifDiv);
+          }
+        });
+    });
+  </script>
+</body>
+
+</html>
