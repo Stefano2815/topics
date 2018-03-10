@@ -62,13 +62,27 @@
         Negan
 
         <button data-person="Spongebob">
-        Spongebob
+        I'm Ready!
 
         <button data-person="Rick and Morty">
         Get Shwifty
 
         <button data-person="Mr. Meeseeks">
         LOOK AT MEEEE!
+         <button data-person="stranger things">
+         Welcome to Hawkins
+
+         <button data-person="pickle rick">
+           I'm Pickle Riiiick
+
+        <button data-person="rick and morty">
+        WUBBA lUBBA DUB DUB!
+
+        <button data-person="hodor">
+          Hold The Door
+
+        <button data-person="jon snow">
+        winter is coming
 
 
   </div>
@@ -78,11 +92,18 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
-    var topics = ["jim carrey", "Tig Bang Theory", "Trump", "Dogs", "Cats", "Fruit", "Minions", "Tom Brady", "Gravity Falls", "Dwayne Johnson", "Destiny Game", "Jeffery Dean Morgan", "Spongebob", "Rick and Morty", "Mr. Meeseeks"];
+    var topics = ["jim carrey", "Tig Bang Theory", "Trump", "Dogs", "Cats", "Fruit", "Minions", "Tom Brady", "Gravity Falls", "Dwayne Johnson", "Destiny Game", "Jeffery Dean Morgan", "Spongebob", "Rick and Morty", "Mr. Meeseeks", "stranger things"];
     console.log(topics.length);
 
 
-
+    $("#gif1").hover(
+        function() {
+            $(this).attr("src", "animate1.gif");
+        },
+        function() {
+            $(this).attr("src", "static1.jpg");
+        }
+    );
 
 
     for (var i = 0; i < topics.length; i++) {
@@ -120,6 +141,8 @@
           }
         });
     });
+
+
   </script>
 </body>
 
